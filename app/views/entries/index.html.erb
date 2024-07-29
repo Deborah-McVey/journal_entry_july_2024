@@ -1,0 +1,35 @@
+<p><%= notice %></p>
+
+<h1>Entries</h1>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Date</th>
+        <th>Chores</th>
+        <th>To Look Forward To</th>
+        <th>Grateful For</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+  <% @entries.each do |entry| %>
+     <tr>
+          <td><%= entry.date %></td>
+          <td><%= entry.todo %></td>
+          <td><%= entry.fun %></td>
+          <td><%= entry.grateful %></td>
+          
+          <td><%= link_to 'Add', entry, method: :create, class: "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to 'Edit', entry, method: :update, class: "btn btn-outline-secondary btn-sm" %></td>
+          <td><%= link_to 'Delete', entry, method: :destroy, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+          
+        </tr>
+  <% end %>
+</tbody>
+</table>
+<br>
+
+<%= link_to "New entry", new_entry_path %>
